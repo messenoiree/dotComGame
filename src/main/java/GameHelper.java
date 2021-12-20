@@ -15,6 +15,7 @@ public class GameHelper {
     private int[] grid = new int[gridSize];
     private int comCount = 0;
 
+    // Gets and checks the user input
     public String getUserInput(String prompt) {
         String inputLine = null;
         System.out.print(prompt + " ");
@@ -29,6 +30,7 @@ public class GameHelper {
         return inputLine.toLowerCase();
     }
 
+    // Creates randomly placed cell locations for DotCom's
     public ArrayList<String> placeDotCom(int comSize) {
         ArrayList<String> alphaCells = new ArrayList<String>();
         String[] alphacoords = new String[comSize];
