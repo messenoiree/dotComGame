@@ -43,13 +43,10 @@ public class DotComBust {
     // Starts the game. Repeats while there are still DotCom's in the ArrayList. Gets user input and checks that input against each DotCom's location.
     public void startPlaying(){
 
-        // Repeat as long as the DotCom list is NOT empty.
+
         while(!dotComList.isEmpty()){
 
-            // Get user input
             String userGuess = helper.getUserInput("Enter your guess: ");
-
-            // Checks if the users guess is a hit or a miss.
             checkUserGuess(userGuess);
         }
 
@@ -66,14 +63,12 @@ public class DotComBust {
         // Repeat with each DotCom-object in the ArrayList.
         for(DotCom dotComToTest : dotComList){
 
-            // Check if the userGuess is a hit or a miss
             result = dotComToTest.checkYourself(userGuess);
 
             if(result.equals("Hit!")){
                 break;      // Since it is a "Hit" we don't need to check the other objects.
             }
 
-            // If it is a "Kill" we remove the object from the ArrayList
             if(result.equals("Kill!")){
                 dotComList.remove(dotComToTest);
                 break;

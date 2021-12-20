@@ -5,10 +5,6 @@ import java.util.ArrayList;
 
 public class GameHelper {
 
-    // This is the Helper Class for the game.
-    // Besides the getUserInput()-method (that prompts the user and reads input from the command-line),
-    // the helper's Big Service is to create the cell locations for the DotCom's.
-
     private static final String alphabet = "abcdefg";
     private int gridLength = 7;
     private int gridSize = 49;
@@ -26,7 +22,6 @@ public class GameHelper {
         } catch (IOException e) {
             System.out.println("IOException: " + e);
         }
-
         return inputLine.toLowerCase();
     }
 
@@ -48,7 +43,6 @@ public class GameHelper {
 
         while (!success & attempts++ < 200) {
             location = (int)(Math.random() * gridSize);
-            //System.out.print(" try " + location);
             int x = 0;
             success = true;
             while (success && x < comSize) {
@@ -62,7 +56,6 @@ public class GameHelper {
                         success = false;
                     }
                 } else {
-                    //System.out.print(" used " + location);
                     success = false;
                 }
             }
@@ -71,18 +64,14 @@ public class GameHelper {
         int x = 0;
         int row = 0;
         int column = 0;
-        //System.out.println("\n");
         while (x < comSize) {
             grid[coords[x]] = 1;
             row = (int)(coords[x] / gridLength);
             column = coords[x] % gridLength;
             temp = String.valueOf(alphabet.charAt(column));
-
             alphaCells.add(temp.concat(Integer.toString(row)));
             x++;
-            //System.out.print(" coord "+x+" = " + alphaCells.get(x-1));
         }
-
         return alphaCells;
     }
 
